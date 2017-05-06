@@ -1,0 +1,20 @@
+<div>
+    <h3>This is list.html</h3>
+    <br>
+    <a ui-sref="addNewCar">Add New</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Brand</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in carSets">
+                <td><span ng-bind="item.carModel"></span></td>
+                <td><span ng-bind="item.brand"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
