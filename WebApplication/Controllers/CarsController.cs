@@ -29,15 +29,19 @@ namespace WebApplication.Controllers
         [HttpPost]
         public dynamic Create([FromBody]Cars car)
         {
-            try{
+            bool isduplicate = dataContext.Cars.Any(m => m.CarModel == car.CarModel);
+            if(isduplicate == false)
+            {
+                
                 this.dataContext.Add(car);
                 this.dataContext.SaveChanges();
-            }catch(Exception e){
-                return e.ToString();
+                return 1;
             }
-
-            dynamic objresponse = new { data = car.Id};
-            return objresponse;
+            else
+            {
+                return 0;
+            }
+            
         }
 
         // DELETE
@@ -78,7 +82,7 @@ namespace WebApplication.Controllers
         [HttpPut]
         public dynamic Update([FromBody]Cars car)
         {   
-            bool updatecar = dataContext.Cars.Any(m => m.Id == car.Id); //ma lo boo
+            bool updatecar = dataContext.Cars.Any(m => m.Id == car.Id);
             
             if (updatecar)
             {

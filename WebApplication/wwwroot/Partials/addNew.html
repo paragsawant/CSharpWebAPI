@@ -1,5 +1,33 @@
-<div>
-    <p>This is addNew.html</p>
+<div align="center">
+    <h3>This is addNew.html</h3>
     <br>
     <a ui-sref="list">List</a>
+    <br>
+    <br>
+    <div align="center">
+        <form name="addForm">
+            <table>
+                <tr>
+                    <td>
+                        <label>Car Model</label>
+                    </td>
+                    <td>
+                        <input type="text" name="model" ng-model="carSet.CarModel">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Brand</label>
+                    </td>
+                    <td>
+                        <input type="text" name="brand" ng-model="carSet.Brand">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" name="submit" value="Add Car" ng-click="AddNewCar(carSet)">
+            <input type="button" name="clear" value="Clear" ng-click="AddNewCar(carSet)">
+        </form>
+        <h2 ng-show="IsVisible">Duplicate</h2>
+    </div>
 </div>
